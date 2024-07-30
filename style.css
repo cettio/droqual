@@ -43,6 +43,7 @@ div {
   place-items: center;
   place-content: center;
   width: 43vw;
+  height: auto;
   aspect-ratio: 1/1;
   max-height: 95dvh;
 }
@@ -54,12 +55,18 @@ div.input {
 div.input .draghere {
   position: absolute;
   top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2rem;
   font-family: "zen kaku gothic new", sans-serif;
   color: rgba(0, 0, 0, 0.2);
 }
+div.input .draghere span {
+  color: rgba(0, 0, 0, 0.2);
+}
 div.input p.ttl {
-  font-size: 5rem;
+  font-size: 7vw;
   font-family: "ubuntu", sans-serif;
   font-weight: 700;
   background-image: linear-gradient(to right bottom, #005, #500);
@@ -81,36 +88,32 @@ div.input input#input {
   cursor: pointer;
   z-index: 1;
 }
-div.input label {
+div.input .size_labels {
   position: absolute;
-  bottom: 100px;
   left: 0;
-  right: 0;
-  margin-inline: auto;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  display: grid;
   z-index: 2;
-  width: 40%;
+  place-items: center;
+}
+div.input .size_labels label.widthsize_label {
+  margin-inline: auto;
+  width: max(30vw, 200px);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 5px;
 }
-div.input label[class*=range] {
-  width: 50%;
-  bottom: 70px;
-}
-div.input label[class*=range] input#range {
-  width: 100%;
-  border: none;
-  outline: none;
-}
-div.input label span {
+div.input .size_labels label.widthsize_label span {
   display: block;
   font-family: "ubuntu", "zen kaku gothic new", sans-serif;
   font-size: 1.3rem;
 }
-div.input label input#width {
+div.input .size_labels label.widthsize_label input#width {
   display: block;
-  width: 50%;
+  width: 80px;
   height: 30px;
   font-size: 1.3rem;
   border: none;
@@ -120,13 +123,30 @@ div.input label input#width {
   padding-inline: 0.5em;
   box-sizing: border-box;
 }
-div.input label input#width::-webkit-inner-spin-button, div.input label input#width::-webkit-outer-spin-button {
+div.input .size_labels label.widthsize_label input#width::-webkit-inner-spin-button, div.input .size_labels label.widthsize_label input#width::-webkit-outer-spin-button {
   display: none;
 }
+div.input .size_labels label.widthsize_range {
+  margin-inline: auto;
+  z-index: 2;
+  width: 80%;
+  width: 100%;
+}
+div.input .size_labels label.widthsize_range input#range {
+  width: 100%;
+  border: none;
+  outline: none;
+}
+div.output {
+  background-image: url(img/default_bg.png);
+  background-size: 100%;
+  display: grid;
+  place-items: center;
+}
 div.output img#output {
-  pointer-events: none;
-  width: 43vw;
-  max-height: 95dvh;
+  width: 40vw;
+  height: auto;
+  min-width: none;
 }
 div.output a {
   display: none;
@@ -152,6 +172,10 @@ div.output a span {
 div.output a svg {
   width: 28px;
   fill: #fff;
+  transition: all 0.2s ease-out;
+}
+div.output a:hover svg {
+  translate: 0 3px;
 }
 
 a.link {
@@ -165,4 +189,43 @@ a.link {
 a.link img {
   display: block;
   width: 100%;
+}
+
+@media (max-width: 1024px) {
+  div.input p.draghere span {
+    display: none;
+  }
+  div.input p.sttl {
+    display: none;
+  }
+}
+@media (max-width: 720px) {
+  body {
+    display: grid;
+    place-items: center;
+    place-content: center;
+  }
+  body div {
+    width: auto;
+    height: 43dvh;
+    max-height: auto;
+    margin-inline: auto;
+  }
+  body div.input {
+    border-radius: 10px;
+  }
+  body div.input .size_labels label.widthsize_label span {
+    display: none;
+  }
+  body div.output#output {
+    width: auto !important;
+    height: 40vh !important;
+  }
+  body div.output a {
+    left: 0;
+    right: 0;
+    margin-inline: auto;
+    height: 30px;
+    font-size: 1rem;
+  }
 }/*# sourceMappingURL=style.css.map */
