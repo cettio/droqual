@@ -9,22 +9,24 @@
 </head>
 <body>
     <div class="input">
-        <p class="draghere">この枠内にドロップ</p>
+        <p class="draghere"><span>この枠内に</span>ドロップ</p>
         <p class="ttl">Droqual</p>
-        <p class="sttl">元画像より大きいサイズを指定しても、高画質化はされません｡<br>
-                        Widthの設定値が5未満になると、自動で5になります｡</p>
+        <p class="sttl">画像の高画質化はされません｡<br>
+                        設定値が5未満になると、自動で5になります｡</p>
         <input type="file" id="input" accept="image/*">
-        <label class="widthsize_label">
-            <span>Width</span>
-            <input type="number" id="width" value="200">
-            <span>px</span>
-        </label>
-        <label class="widthsize_range">
-            <input type="range" id="range" min="5" max="2000" value="200">
-        </label>
+        <div class="size_labels">
+            <label class="widthsize_label">
+                <span>Width</span>
+                <input type="number" id="width" value="200">
+                <span>px</span>
+            </label>
+            <label class="widthsize_range">
+                <input type="range" id="range" min="5" max="2000" value="200">
+            </label>
+        </div>
     </div>
     <div class="output">
-        <img id="output" src="img/default_bg.png">
+        <img src="" alt="" id="output">
         <a href="img/default_bg.png" class="download" download="Droqual_resized.png">
             Download<span>(.png)</span>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg>
